@@ -20,3 +20,28 @@
 
 ./extract_transmission.sh -v cohort.bcf -p trios.ped -r chr1 \
   -o chr1.transmissions.tsv.gz -t 8
+
+
+Setp2：提取指定变异及其对应基因型
+bash ../tools/hapvcf_extract_raw_byAllele.sh \
+  -v /public/home/zj2020/phasing/phasing_res/check/test2.PT.vcf.gz \
+  -l var_a1.txt \
+  -o test2.raw
+
+
+2) 只导出部分样本（sample.list 每行一个样本名）：
+bash hapvcf_extract_raw_byAllele.sh \
+  -v /public/.../transmissions.chr9.MT.vcf.gz \
+  -l var_a1.txt \
+  -s /public/home/zj2020/phasing/sample.list \
+  -o MT_chr9_customA1_subset.raw
+
+Step3：
+~/anaconda3/envs/zj/bin/Rscript ../tools/merge_raws_and_prs.R \
+  effects.tsv \
+  PRS_output.tsv \
+  merged_genotype.tsv \
+  /public/home/zj2020/phasing/phasing_res/check
+
+
+  
