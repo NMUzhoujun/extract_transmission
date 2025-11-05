@@ -47,4 +47,14 @@ bash hapvcf_extract_raw_byAllele.sh \
   /public/home/zj2020/phasing/phasing_res/check
 ```
 
-  
+
+##转换rsid为chr:bp:ref:alt
+```
+rs2pos_min_whitelist.sh \
+  -i /public/home/zj2020/PGS_analysis/taiwan/download_data/${file}.gz \
+  -d /public/home/zj2020/StandTools/annovar/annovar/humandb/hg19_Gnomad.txt \
+  -v /public/project/BC0001/BC8000/BC8000_QC/new_model/all_pass_combine.vid \
+  -m /public/project/BC0001/BC8000/results/vcfnorm_CNBC/vcf_split2_anno/allvid_maf_parents.tsv \
+  -o /public/home/zj2020/PGS_analysis/taiwan/output_vid/${phenotype}
+```
+
