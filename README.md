@@ -38,13 +38,18 @@ bash hapvcf_extract_raw_byAllele.sh \
   -s /public/home/zj2020/phasing/sample.list \
   -o MT_chr9_customA1_subset.raw
 ```
+
 ##Step3：计算PRS
 ```
-~/anaconda3/envs/zj/bin/Rscript ../tools/merge_raws_and_prs.R \
-  effects.tsv \
-  PRS_output.tsv \
-  merged_genotype.tsv \
-  /public/home/zj2020/phasing/phasing_res/check
+for i in MT PT PU MU
+do
+~/anaconda3/envs/zj/bin/Rscript merge_raws_and_prs.R \
+  vid_beta_test.vid \
+  PRS_output_${i}.tsv \
+  merged_genotype_${i}.tsv \
+  /public/home/zj2020/phasing/phasing_res/check/check
+done
+
 ```
 
 
